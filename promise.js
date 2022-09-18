@@ -14,9 +14,9 @@ promiseOutput = (emosi) => {
                         Object.values(resolve).forEach((value) => {
                           let esmosi = value['hasil'];
                           if (esmosi === 'marah'){
-                            count_marah = 4;
+                            count_marah += 1;
                           }else{
-                            count_tdk_marah = 2;
+                            count_tdk_marah += 1;
                           }
 
                         })
@@ -34,12 +34,12 @@ promiseOutput = (emosi) => {
                                         Object.values(resolve).forEach((value) => {
                                             let esmosi = value['hasil'];
                                                 if (esmosi == 'marah'){
-                                                    count_marah = diffamount;
+                                                    count_marah += 1;
                                                 }else{
-                                                    count_tdk_marah = diffamount;
+                                                    count_tdk_marah += 1;
                                                 }
                                         })
-                        amount(emosi === 'marah' ? count_marah: count_tdk_marah);
+                        amount(emosi === 'marah' ? count_marah+diffamount: count_tdk_marah+diffamount);
                                   })
                         }
 
