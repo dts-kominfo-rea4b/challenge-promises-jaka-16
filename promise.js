@@ -39,7 +39,7 @@ promiseOutput = (emosi) => {
                                                 }
 
                                         })
-                        return resolved(emosi === 'marah' ? `marah theaterIXX : ${count_marah}\nmarah theaterVGC : ${x}` : `tidak marah theaterIXX : ${count_tdk_marah}\ntidak marah theaterVGC : ${x}`)
+                        return resolved(emosi === 'marah' ? count_marah: count_tdk_marah);
                                     })
                                 })
                         })
