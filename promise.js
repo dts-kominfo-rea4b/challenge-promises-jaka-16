@@ -5,7 +5,7 @@ let promiseOutput = null;
   
 promiseOutput = (emosi) => {
   return new Promise((resolved) => {
-    function countTheaterIXX(amount) { 
+    let countTheaterIXX = (amount) => { 
           promiseTheaterIXX()
               .then()
                     .then((resolve) => {
@@ -24,26 +24,33 @@ promiseOutput = (emosi) => {
                       })
                     }
                       
-                    promiseTheaterVGC()
+          let countTheaterVGC  = (diffamount, amount) => {
+                        promiseTheaterVGC()
                             .then()
                                 .then((resolve) => {
-                                    countTheaterIXX((x) => {
+                                    
                                         let count_marah = 0;
                                         let count_tdk_marah = 0;
                                         Object.values(resolve).forEach((value) => {
                                             let esmosi = value['hasil'];
                                                 if (esmosi == 'marah'){
-                                                    count_marah = 4;
+                                                    count_marah = diffamount;
                                                 }else{
-                                                    count_tdk_marah = 2;
+                                                    count_tdk_marah = diffamount;
                                                 }
-
                                         })
-                        return resolved(emosi === 'marah' ? count_marah: count_tdk_marah);
-                                    })
-                                })
-                        })
-}
+                        amount(emosi === 'marah' ? count_marah: count_tdk_marah);
+                                  })
+                        }
+
+          countTheaterIXX((y) => {
+            countTheaterVGC(y, (x) => {
+              return resolved(x);
+            })
+          })
+        })
+      }
+                      
 module.exports = {
   promiseOutput,
 };
